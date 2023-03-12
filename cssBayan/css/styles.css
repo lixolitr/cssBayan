@@ -1,7 +1,6 @@
 .body-wrapper {
-  background-color: darkgrey;
   margin: 0 auto;
-  max-width: 90%;
+  max-width: 80%;
 }
 
 h1 {
@@ -27,6 +26,8 @@ h1 {
   margin-right: 0.5em;
   /*hide the icons*/
   opacity: 0;
+  /* add a transition effect */
+  transition: opacity 0.2s;
 }
 
 .accordion-icon svg {
@@ -40,11 +41,14 @@ h1 {
   text-align: center;
 }
 
+.accordion-content img {
+  max-width: 100%;
+  height: auto;
+}
+
 
 /* Mobile breakpoint */
 @media screen and (max-width: 767px) {
-
-
   h1 {
     font-size: 2em;
   }
@@ -52,15 +56,10 @@ h1 {
   .accordion-title {
     font-size: 1.5rem;
   }
-
-  /* .accordion-content {
-    font-size: 1rem;
-  } */
 }
 
 /* Tablet breakpoint */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-
   h1 {
     font-size: 3em;
   }
@@ -68,26 +67,10 @@ h1 {
   .accordion-title {
     font-size: 2rem;
   }
-
-  /* .accordion-content {
-      font-size: 1.2rem;
-    } */
 }
 
 /* Desktop breakpoint */
 @media screen and (min-width: 1200px) {
-
-  .accordion:hover .accordion-icon {
-    /* add a transition effect */
-    transition: opacity 0.1s;
-    /*show the icons*/
-    opacity: 1;
-  }
-
-  .accordion:hover {
-    cursor: pointer;
-  }
-
   h1 {
     font-size: 4em;
   }
@@ -96,7 +79,39 @@ h1 {
     font-size: 2.5rem;
   }
 
-  /* .accordion-content {
-      font-size: 1.5rem;
-    } */
+  .accordion-content {
+    /* hide the accordion content by default */
+    display: none;
+  }
+
+  .accordion-content-active {
+    display: block;
+  }
+
+  .accordion-icon-open img {
+    /* change icon image when section hovered */
+    content: url('../assets/icons/folder-open-regular.svg');
+  }
+
+  .accordion:hover .accordion-icon {
+    /*show the icons*/
+    opacity: 1;
+  }
+
+  .accordion:hover {
+    cursor: pointer;
+  }
+
+  .accordion-section:hover .accordion-icon img {
+    /* change icon image when section hovered */
+    content: url('../assets/icons/folder-open-regular.svg');
+  }
+
+
+  /* show the accordion content when the user hovers over a meme image */
+  .accordion-section:hover .accordion-content {
+    display: block;
+  }
+
+
 }
