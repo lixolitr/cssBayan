@@ -1,0 +1,65 @@
+.body-wrapper {
+  background-color: darkgrey;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+h1 {
+  margin: 0;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Mobile breakpoint */
+@media screen and (max-width: 767px) {
+
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .accordion-title {
+    font-size: 1.5rem;
+  }
+
+  /* .accordion-content {
+    font-size: 1rem;
+  } */
+}
+
+/* Tablet breakpoint */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+
+  h1 {
+    font-size: 3em;
+  }
+
+  .accordion-title {
+    font-size: 2rem;
+  }
+
+  /* .accordion-content {
+      font-size: 1.2rem;
+    } */
+}
+
+/* Desktop breakpoint */
+@media screen and (min-width: 1200px) {
+
+
+  h1 {
+    font-size: 4em;
+  }
+
+  .accordion-title {
+    font-size: 2.5rem;
+  }
+
+  /* .accordion-content {
+      font-size: 1.5rem;
+    } */
+}
