@@ -13,6 +13,33 @@ h1 {
   flex-direction: column;
 }
 
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-icon {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+  margin-right: 0.5em;
+  /*hide the icons*/
+  opacity: 0;
+}
+
+.accordion-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.accordion-content {
+  text-align: center;
+}
+
 
 /* Mobile breakpoint */
 @media screen and (max-width: 767px) {
@@ -50,6 +77,16 @@ h1 {
 /* Desktop breakpoint */
 @media screen and (min-width: 1200px) {
 
+  .accordion:hover .accordion-icon {
+    /* add a transition effect */
+    transition: opacity 0.1s;
+    /*show the icons*/
+    opacity: 1;
+  }
+
+  .accordion:hover {
+    cursor: pointer;
+  }
 
   h1 {
     font-size: 4em;
