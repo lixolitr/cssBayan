@@ -23,11 +23,10 @@ h1 {
   width: 1.2em;
   height: 1.2em;
   vertical-align: middle;
-  margin-right: 0.5em;
   /*hide the icons*/
   opacity: 0;
   /* add a transition effect */
-  transition: opacity 0.2s;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .accordion-icon svg {
@@ -45,7 +44,6 @@ h1 {
   max-width: 100%;
   height: auto;
 }
-
 
 /* Mobile breakpoint */
 @media screen and (max-width: 767px) {
@@ -93,25 +91,24 @@ h1 {
     content: url('../assets/icons/folder-open-regular.svg');
   }
 
-  .accordion:hover .accordion-icon {
-    /*show the icons*/
-    opacity: 1;
+  @media (hover :hover) {
+    .accordion:hover .accordion-icon {
+      /*show the icons*/
+      opacity: 1;
+    }
+
+    .accordion:hover {
+      cursor: pointer;
+    }
+
+    .accordion-section:hover .accordion-icon img {
+      /* change icon image when section hovered */
+      content: url('../assets/icons/folder-open-regular.svg');
+    }
+
+    /* show the accordion content when the user hovers over a meme image */
+    .accordion-section:hover .accordion-content {
+      display: block;
+    }
   }
-
-  .accordion:hover {
-    cursor: pointer;
-  }
-
-  .accordion-section:hover .accordion-icon img {
-    /* change icon image when section hovered */
-    content: url('../assets/icons/folder-open-regular.svg');
-  }
-
-
-  /* show the accordion content when the user hovers over a meme image */
-  .accordion-section:hover .accordion-content {
-    display: block;
-  }
-
-
 }
