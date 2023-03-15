@@ -12,7 +12,7 @@ h1 {
   flex-direction: column;
 }
 
-.accordion-header {
+.accordion-item-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,11 +36,12 @@ h1 {
   fill: currentColor;
 }
 
-.accordion-content {
+.accordion-title-content {
   text-align: center;
+
 }
 
-.accordion-content img {
+.accordion-title-content img {
   max-width: 100%;
   height: auto;
 }
@@ -51,7 +52,7 @@ h1 {
     font-size: 2em;
   }
 
-  .accordion-title {
+  .accordion-item-title {
     font-size: 1.5rem;
   }
 }
@@ -62,7 +63,7 @@ h1 {
     font-size: 3em;
   }
 
-  .accordion-title {
+  .accordion-item-title {
     font-size: 2rem;
   }
 }
@@ -73,21 +74,25 @@ h1 {
     font-size: 4em;
   }
 
-  .accordion-title {
+  .accordion-item-title {
     font-size: 2.5rem;
   }
 
-  .accordion-content {
+  .accordion-title-content {
     /* hide the accordion content by default */
     display: none;
+    /* transform-origin: top center; */
+    transition: 3s ease-in-out;
+    transform: scale(0.5);
+
   }
 
-  .accordion-content-active {
+  .accordion-title-content-active {
     display: block;
   }
 
   .accordion-icon-open img {
-    /* change icon image when section hovered */
+    /* change icon image when item hovered */
     content: url('../assets/icons/folder-open-regular.svg');
   }
 
@@ -97,18 +102,19 @@ h1 {
       opacity: 1;
     }
 
-    .accordion:hover {
+    .accordion:hover .accordion-item {
       cursor: pointer;
     }
 
-    .accordion-section:hover .accordion-icon img {
-      /* change icon image when section hovered */
+    .accordion-item:hover .accordion-icon img {
+      /* change icon image when item hovered */
       content: url('../assets/icons/folder-open-regular.svg');
     }
 
     /* show the accordion content when the user hovers over a meme image */
-    .accordion-section:hover .accordion-content {
+    .accordion-item:hover .accordion-title-content {
       display: block;
+      transform: scale(1);
     }
   }
 }
