@@ -1,0 +1,125 @@
+.body-wrapper {
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+h1 {
+  margin: 0;
+}
+
+input {
+  display: none;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-icon {
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+  /*hide the icons*/
+  opacity: 0;
+  /* add a transition effect */
+  transition: opacity 0.5s ease-in-out;
+}
+
+.accordion-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.accordion-item-content {
+  text-align: center;
+
+}
+
+.accordion-item-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile breakpoint */
+.accordion-item-content {
+  /* hide the accordion content by default */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 1s ease-in, opacity 1s ease-in;
+}
+
+.accordion:hover .accordion-icon {
+  /*show the icons*/
+  opacity: 1;
+}
+
+
+.accordion-item:hover .accordion-icon img {
+  /*  change icon image when item hovered */
+  content: url('../assets/icons/folder-open-regular.svg');
+}
+
+.accordion-item-input:checked~.accordion-item-content {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+.accordion-item-input:checked~.accordion-item-header .accordion-icon img {
+  content: url('../assets/icons/folder-open-regular.svg');
+}
+
+@media screen and (min-width: 320px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .accordion-item-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+/* Tablet breakpoint */
+@media screen and (min-width: 820px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  .accordion-item-header {
+    font-size: 2rem;
+  }
+}
+
+/* Desktop breakpoint */
+@media screen and (min-width: 1920px) {
+  h1 {
+    font-size: 4em;
+  }
+
+  .accordion-item-header {
+    font-size: 2.5rem;
+  }
+
+  @media (hover :hover) {
+
+    .accordion-item,
+    .accordion-item-header {
+      cursor: pointer;
+    }
+
+    .accordion-item-header:hover~.accordion-item-content {
+      max-height: 100vh;
+      opacity: 1;
+    }
+
+  }
+}
