@@ -49,6 +49,34 @@ input {
 }
 
 /* Mobile breakpoint */
+.accordion-item-content {
+  /* hide the accordion content by default */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 1s ease-in, opacity 1s ease-in;
+}
+
+.accordion:hover .accordion-icon {
+  /*show the icons*/
+  opacity: 1;
+}
+
+
+.accordion-item:hover .accordion-icon img {
+  /*  change icon image when item hovered */
+  content: url('../assets/icons/folder-open-regular.svg');
+}
+
+.accordion-item-input:checked~.accordion-item-content {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+.accordion-item-input:checked~.accordion-item-header .accordion-icon img {
+  content: url('../assets/icons/folder-open-regular.svg');
+}
+
 @media screen and (min-width: 320px) {
   h1 {
     font-size: 2em;
@@ -82,36 +110,16 @@ input {
   }
 
   @media (hover :hover) {
-    .accordion-item-content {
-      /* hide the accordion content by default */
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 1s ease-in, opacity 2s ease-in;
-    }
-
-    .accordion:hover .accordion-icon {
-      /*show the icons*/
-      opacity: 1;
-    }
 
     .accordion-item,
     .accordion-item-header {
       cursor: pointer;
     }
 
-    .accordion-item:hover .accordion-icon img {
-      /*  change icon image when item hovered */
-      content: url('../assets/icons/folder-open-regular.svg');
-    }
-
-    .accordion-item-input:checked~.accordion-item-content {
+    .accordion-item-header:hover~.accordion-item-content {
       max-height: 100vh;
       opacity: 1;
     }
 
-    .accordion-item-input:checked~.accordion-item-header .accordion-icon img {
-      content: url('../assets/icons/folder-open-regular.svg');
-    }
   }
 }
