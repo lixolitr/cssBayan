@@ -23,7 +23,6 @@ input {
 }
 
 .accordion-icon {
-  display: inline-block;
   width: 1.2em;
   height: 1.2em;
   vertical-align: middle;
@@ -34,7 +33,6 @@ input {
 }
 
 .accordion-icon svg {
-  /* display: block; */
   width: 100%;
   height: 100%;
   fill: currentColor;
@@ -51,52 +49,54 @@ input {
 }
 
 /* Mobile breakpoint */
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 320px) {
   h1 {
     font-size: 2em;
   }
 
-  .accordion-item-title {
+  .accordion-item-header {
     font-size: 1.5rem;
+    font-weight: bold;
   }
 }
 
 /* Tablet breakpoint */
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+@media screen and (min-width: 820px) {
   h1 {
     font-size: 3em;
   }
 
-  .accordion-item-title {
+  .accordion-item-header {
     font-size: 2rem;
   }
 }
 
 /* Desktop breakpoint */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1920px) {
   h1 {
     font-size: 4em;
   }
 
-  .accordion-item-title {
+  .accordion-item-header {
     font-size: 2.5rem;
   }
 
-  .accordion-item-content {
-    /* hide the accordion content by default */
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 1s ease-in, opacity 2s ease-in;
-  }
-
   @media (hover :hover) {
+    .accordion-item-content {
+      /* hide the accordion content by default */
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 1s ease-in, opacity 2s ease-in;
+    }
+
     .accordion:hover .accordion-icon {
       /*show the icons*/
       opacity: 1;
     }
 
-    .accordion:hover .accordion-item .accordion-item-header {
+    .accordion-item,
+    .accordion-item-header {
       cursor: pointer;
     }
 
