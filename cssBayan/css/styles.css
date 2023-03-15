@@ -36,12 +36,12 @@ h1 {
   fill: currentColor;
 }
 
-.accordion-title-content {
+.accordion-item-content {
   text-align: center;
 
 }
 
-.accordion-title-content img {
+.accordion-item-content img {
   max-width: 100%;
   height: auto;
 }
@@ -78,22 +78,24 @@ h1 {
     font-size: 2.5rem;
   }
 
-  .accordion-title-content {
+  .accordion-item-content {
     /* hide the accordion content by default */
     display: none;
     /* transform-origin: top center; */
+    opacity: 0;
     transition: 3s ease-in-out;
-    transform: scale(0.5);
+    /* transform: scale(0.5); */
 
   }
 
-  .accordion-title-content-active {
-    display: block;
+  .accordion-item-content-active {
+    /* display: block; */
+
   }
 
   .accordion-icon-open img {
     /* change icon image when item hovered */
-    content: url('../assets/icons/folder-open-regular.svg');
+    /* content: url('../assets/icons/folder-open-regular.svg'); */
   }
 
   @media (hover :hover) {
@@ -107,14 +109,24 @@ h1 {
     }
 
     .accordion-item:hover .accordion-icon img {
-      /* change icon image when item hovered */
+      /*  change icon image when item hovered */
       content: url('../assets/icons/folder-open-regular.svg');
     }
 
     /* show the accordion content when the user hovers over a meme image */
-    .accordion-item:hover .accordion-title-content {
+    .accordion-item:hover .accordion-item-content {
+      /* display: block;
+      transform: scale(1); */
+    }
+
+    .accordion-item-input:checked~.accordion-item-content {
       display: block;
-      transform: scale(1);
+      opacity: 1;
+      /* transform: scale(1); */
+    }
+
+    .accordion-item-input:checked~.accordion-item-header .accordion-icon img {
+      content: url('../assets/icons/folder-open-regular.svg');
     }
   }
 }
